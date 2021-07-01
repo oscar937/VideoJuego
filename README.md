@@ -1,3 +1,0 @@
-# VideoJuego
-Game
-Oscar Medina
