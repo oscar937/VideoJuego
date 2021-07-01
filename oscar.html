@@ -1,0 +1,155 @@
+<!doctype
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CANVAS</title>
+<style>
+#miCanvas{
+	border:dotted 3px red;
+	background:black;
+	
+}
+</style>
+<script>
+window.onload = function(){
+	var canvas = document.getElementById("miCanvas");
+	if(canvas && canvas.getContext){
+		var ctx = canvas.getContext("2d");
+
+		if(ctx){
+			var h = canvas.height;
+			var w = canvas.width;
+			var gradiente = ctx.createLinearGradient(0,0,w/2,0);
+			gradiente = ctx.createLinearGradient(w/2,h,w,h/2);
+			gradiente.addColorStop(0, "grey");
+			gradiente.addColorStop(0.15, "yellow");
+			gradiente.addColorStop(0.35, "white");
+			gradiente.addColorStop(0.65, "yellow");
+			gradiente.addColorStop(1, "red");
+			ctx.fillStyle = gradiente;
+			ctx.fillRect(w/2,h/2,w,h);
+			
+
+
+		}
+			
+			ctx.fillStyle = gradiente;
+			ctx.fillRect(0,0,canvas.width,canvas.height);
+			
+		} else {
+			alert("Error al crear tu contexto");	
+		}
+		
+
+		if (ctx)//Dibujar O
+				{
+					//Descripcion de lineas
+					ctx.lineWidth = 10;
+					ctx.strokeStyle = "#8b4513";
+					ctx.beginPath();
+					ctx.arc(85, 150, 78, 50, 0, 2 * Math.PI, true);
+					ctx.stroke();
+				}
+
+		if (ctx)//Dibujar S
+				{
+					//Colores
+					ctx.lineWidth = 10;
+					ctx.strokeStyle = "#8b4513";
+					ctx.beginPath();
+					ctx.lineCap = "butt";
+					ctx.moveTo(150, 230);
+					//Dibujamos la curva
+					ctx.bezierCurveTo(480, 80, 80, 180, 280, 80);
+					ctx.stroke();
+				}
+		if (ctx)//Dibujar C
+			{
+				//Descripcion de lineas
+				ctx.lineWidth = 10;
+				ctx.strokeStyle = "#8b4513";
+				ctx.beginPath();
+				ctx.arc(390, 150, 78, 2.3 * Math.PI, 1.7 * Math.PI);
+				ctx.stroke();
+			}
+
+		if (ctx)//Dibujar A
+		{
+			//Descripcion de lineas
+			ctx.lineWidth = 10;
+			ctx.strokeStyle = "#8b4513";
+			ctx.fillStyle = "black";
+			//Dibujamos esquina
+			ctx.beginPath();
+			//ctx.lineJoin = "round";
+			ctx.lineJoin = "bevel";
+			//ctx.lineJoin = "mitter";
+			ctx.moveTo(490,230);
+			ctx.lineTo(539,80);
+			ctx.lineTo(590,230);
+			ctx.stroke();
+			//Colores
+			ctx.lineWidth = 10;
+			ctx.strokeStyle = "#8b4513";
+			ctx.fillStyle = "black";
+			ctx.moveTo(510,550);
+			//Curva bezier
+			ctx.beginPath();
+			//Dibujamos la curva
+			ctx.bezierCurveTo(510,180, 500,180, 570,180);
+			//Dibujamos la curva
+			ctx.stroke();
+		
+		
+		}
+		if (ctx)//Dibujar R
+				{
+					//Colores
+					ctx.lineWidth = 10;
+					ctx.strokeStyle = "#8b4513";
+					ctx.beginPath();
+					ctx.lineCap = "butt";
+					ctx.moveTo(610,170);
+					//Dibujamos la curva
+					ctx.bezierCurveTo(710, 80, 610, 95, 610, 80);
+					ctx.stroke();
+					ctx.moveTo(700,230);
+					//Dibujamos la curva
+					ctx.bezierCurveTo(700, 70, 610, 180, 610, 170);
+					ctx.stroke();
+					ctx.beginPath();
+					ctx.lineCap = "butt";
+					ctx.moveTo(610, 80);
+					ctx.lineTo(610, 230);
+					ctx.stroke();
+		}
+	
+//foto
+
+var canvas = document.getElementById("miCanvas");
+		if (canvas && canvas.getContext) {
+		var ctx = canvas.getContext("2d");
+			if (ctx) {
+					var img=new Image();
+					img.src = "imagenes/oscar.jpg";
+					img.onload = function() {
+					ctx.drawImage(this, 400, 250);
+					}
+			 }
+		}
+
+}
+
+		
+</script>
+</head>
+<body>
+<h1>MI NOMBRE</h1>
+<canvas id="miCanvas" width="800px" height="450px">
+Tu navegador no soporta CANVAS
+</canvas>
+<right>
+	<a href="juego.html" title="JUGAR">JUGAR</a>
+</right>
+</body>
+</html>
